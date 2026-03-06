@@ -9,7 +9,40 @@
             <input type="text" id="demail" value="Email">
             <input type="text" id="dmessage" value="Message">
             <input type="submit">
-
         </form>
     </div>
 </Body>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getFirestore } from "firebase/firestore";
+    import { doc, setDoc } from "firebase/firestore";
+    
+    // Set up firebase configs
+      const firebaseConfig = {
+        apiKey: "AIzaSyAE7d51eKlGGyZfX89DwJ-GhpH-QVErHuM",
+        authDomain: "location-challenge.firebaseapp.com",
+        projectId: "location-challenge",
+        storageBucket: "location-challenge.firebasestorage.app",
+        messagingSenderId: "163296741167",
+        appId: "1:163296741167:web:ea6421be0110ff054f43da"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+//   Initialize Firestore and get a reference to the service
+    const db = getFirestore(app);
+    var vName = document.getElementById("dname");
+    var vEmail = document.getElementById("demail");
+    var vMessage = document.getElementById("dmessage");
+
+  await setDoc(doc(db, "potentialClients", name), {
+    name: vName,
+    email: vEmail,
+    message: vMessage,
+  });
+// debug
+  print("done");
+</script>
+
