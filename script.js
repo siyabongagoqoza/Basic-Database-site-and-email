@@ -1,6 +1,6 @@
 // Configs for my firebase app
  const firebaseConfig = {
-    apiKey: "",
+    apiKey: "", // Take API key from firebase studio
     authDomain: "temp-firestore-db.firebaseapp.com",
     projectId: "temp-firestore-db",
     storageBucket: "temp-firestore-db.firebasestorage.app",
@@ -68,6 +68,7 @@ button.addEventListener('click', (event) => {
     console.log("Sending data:", clientData);
     addPotentialClient(clientData);
 });
+
 
 
 
