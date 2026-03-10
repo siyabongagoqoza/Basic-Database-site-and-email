@@ -5,56 +5,18 @@
 <Body>
     <div>
         <form>
-            <input type="text" id="dname" value="Name">
-            <input type="text" id="demail" value="Email">
-            <input type="text" id="dmessage" value="Message">
-            <input type="submit" id="dsubmit">
+            <input type="text" id="dname" placeholder="Name">
+            <input type="text" id="demail" placeholder="Email">
+            <input type="text" id="dmessage" placeholder="Message">
+            <button id="dbutton">Send Update</button>
         </form>
     </div>
+    <div>
+
+    </div>
 </Body>
-
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-    import { getFirestore } from "firebase/firestore";
-    import { doc, setDoc } from "firebase/firestore";
-    
-    // Set up firebase configs
-      const firebaseConfig = {
-        apiKey: "",
-        authDomain: "location-challenge.firebaseapp.com",
-        projectId: "location-challenge",
-        storageBucket: "location-challenge.firebasestorage.app",
-        messagingSenderId: "163296741167",
-        appId: "1:163296741167:web:ea6421be0110ff054f43da"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
-//   Initialize Firestore and get a reference to the service
-    const db = getFirestore(app);
-    // Function to add data to the database
-async function setUserData() {
-    //  Create variables for the elements on HTML
-    var vName = document.getElementById("dname");
-    var vEmail = document.getElementById("demail");
-    var vMessage = document.getElementById("dmessage");
-  // Use setDoc to set to update the data in the database 'potentialClients being the collections'
-    await setDoc(doc(db, "potentialClients", vName), {
-        name: vName,
-        email: vEmail,
-        message: vMessage,
-    });
-     print("function called");
-}
-
-// debug
-  const submitButton = document.getElementById("dsubmit");
-
-  submitButton.addEventListener('click', setUserData());
-  
- 
-</script>
-
-
+<!-- Firebase (Compat version for global firebase object) -->
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
 
