@@ -1,6 +1,6 @@
 // Configs for my firebase app
  const firebaseConfig = {
-    apiKey: "", // Take API key from firebase studio
+    apiKey: "AIzaSyDUrqoN-6I_TdAhNVHb-yxGpydDzIB8b0A",
     authDomain: "temp-firestore-db.firebaseapp.com",
     projectId: "temp-firestore-db",
     storageBucket: "temp-firestore-db.firebasestorage.app",
@@ -40,7 +40,7 @@ async function addPotentialClient(clientData) {
 // Example usage:
 
 */
-
+// Add data to the firestore database
 async function addPotentialClient(clientData) {
   try {
     const docRef = await db.collection("potentialClients").add({
@@ -55,8 +55,20 @@ async function addPotentialClient(clientData) {
   }
 }
 
+// Get data from the firestore database
+async function getPotentialClient() {
+  try {
+    const docRef = await db.collection("potentialClients").get();
+    console.log("Retrieved document: ", docRef);
+    const displayData = document.getElementById("doutput");
+    displayData.innerHTML = docRef.docs.map(doc => `<p><strong>Name:</strong> ${doc.data().name} <br><strong>Email:</strong> ${doc.data().email} <br><strong>Message:</strong> ${doc.data().message}</p>`).join('');
+  } catch (e) {
+    console.error("Error retrieving document: ", e);
+  }
+}
 
 const button = document.getElementById("dbutton");
+const pullButton = document.getElementById("dpullbutton");
 
 button.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent form submission and page reload
@@ -69,10 +81,9 @@ button.addEventListener('click', (event) => {
     addPotentialClient(clientData);
 });
 
-
-
-
-
-
+pullButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    getPotentialClient();
+});
 
 
