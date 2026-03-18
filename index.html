@@ -4,10 +4,10 @@
 </head>
 <Body>
     <div>
-        <form>
-            <input type="text" id="dname" placeholder="Name">
-            <input type="text" id="demail" placeholder="Email">
-            <input type="text" id="dmessage" placeholder="Message">
+        <form id="contact-form">
+            <input type="text" id="dname" name="name" placeholder="Name" required>
+            <input type="email" id="demail" name="email" placeholder="Email" required>
+            <input type="text" id="dmessage" name="message" placeholder="Message" required>
             <button id="dbutton">Send Update</button>
             <button id="dpullbutton">Pull Updates</button>
         </form>
@@ -19,5 +19,7 @@
 <!-- Firebase (Compat version for global firebase object) -->
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<!-- Add emailjs Resources -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 

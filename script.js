@@ -67,23 +67,45 @@ async function getPotentialClient() {
   }
 }
 
+const form = document.getElementById("contact-form");
 const button = document.getElementById("dbutton");
 const pullButton = document.getElementById("dpullbutton");
 
-button.addEventListener('click', (event) => {
+// initialize EmailJS SDK with public key
+emailjs.init({
+  publicKey: '9__bEgcG6Iuz5qzjN',
+});
+
+button.addEventListener('click', async (event) => {
     event.preventDefault(); // Prevent form submission and page reload
+
     const clientData = {
         name: document.getElementById("dname").value,
         email: document.getElementById("demail").value,
         message: document.getElementById("dmessage").value
     };
+
     console.log("Sending data:", clientData);
     addPotentialClient(clientData);
+
+    emailjs.sendForm("service_eflgdu1", "template_g62ymjz", form)
+      .then(() => {
+        console.log("Email sent successfully!");
+      })
+      .catch((error) => {
+        console.error("Error sending email: ", error);
+      });
 });
 
 pullButton.addEventListener('click', (event) => {
     event.preventDefault();
     getPotentialClient();
 });
+
+
+
+
+
+
 
 
