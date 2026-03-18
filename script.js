@@ -1,6 +1,6 @@
 // Configs for my firebase app
  const firebaseConfig = {
-    apiKey: "AIzaSyDUrqoN-6I_TdAhNVHb-yxGpydDzIB8b0A",
+    apiKey: "",
     authDomain: "temp-firestore-db.firebaseapp.com",
     projectId: "temp-firestore-db",
     storageBucket: "temp-firestore-db.firebasestorage.app",
