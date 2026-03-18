@@ -1,6 +1,6 @@
 // Configs for my firebase app
  const firebaseConfig = {
-    apiKey: "",
+    apiKey: "", // get apiKey from firebase app site
     authDomain: "temp-firestore-db.firebaseapp.com",
     projectId: "temp-firestore-db",
     storageBucket: "temp-firestore-db.firebasestorage.app",
@@ -88,6 +88,7 @@ button.addEventListener('click', async (event) => {
     console.log("Sending data:", clientData);
     addPotentialClient(clientData);
 
+ // emailjs.sendForm("service_id", "template_id", form) get from the emailjs
     emailjs.sendForm("service_eflgdu1", "template_g62ymjz", form)
       .then(() => {
         console.log("Email sent successfully!");
